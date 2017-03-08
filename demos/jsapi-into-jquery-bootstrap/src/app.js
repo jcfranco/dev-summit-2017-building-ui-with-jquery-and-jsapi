@@ -8,7 +8,8 @@ define([
   "esri/geometry/Point",
   "esri/geometry/Polyline",
   "esri/symbols/PictureMarkerSymbol",
-  "esri/symbols/SimpleLineSymbol"
+  "esri/symbols/SimpleLineSymbol",
+  "jquery.easing"
 ], function(
   $,
   Map, GraphicsLayer, MapView,
@@ -84,6 +85,7 @@ define([
 
         graphicsLayer.addMany(
           data.photos.map(function(photo) {
+            console.dir(photo);
 
             // place photos on map PictureMarkerSymbols
             return new Graphic({
