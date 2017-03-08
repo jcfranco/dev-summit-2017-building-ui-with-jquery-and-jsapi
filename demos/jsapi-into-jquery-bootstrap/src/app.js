@@ -85,14 +85,15 @@ define([
 
         graphicsLayer.addMany(
           data.photos.map(function(photo) {
-            console.dir(photo);
+            var photoUrlKey = Object.keys(photo.urls)[0];
+            var photoUrl = photo.urls[photoUrlKey];
 
             // place photos on map PictureMarkerSymbols
             return new Graphic({
               attributes: photo,
               geometry: new Point(latLong2LongLat(photo.location)),
               symbol: new PictureMarkerSymbol({
-                url: photo.urls["1024"]
+                url: photoUrl
               }),
               popupTemplate: {
                 content: [{
@@ -100,7 +101,7 @@ define([
                   mediaInfos: [{
                     type: "image",
                     value: {
-                      sourceURL: photo.urls["1024"]
+                      sourceURL: photoUrl
                     },
                     caption: photo.caption
                   }]
