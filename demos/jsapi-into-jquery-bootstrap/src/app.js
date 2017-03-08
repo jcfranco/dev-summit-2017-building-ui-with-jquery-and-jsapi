@@ -30,12 +30,7 @@ define([
 
     map.add(graphicsLayer);
 
-    // create and append view via $
-
-    // var viewDiv = $("<div></div>")
-    //   .addClass("viewDiv")
-    //   .appendTo("body");
-
+    // create view
     var view = new MapView({
       map: map,
       container: "view-div"
