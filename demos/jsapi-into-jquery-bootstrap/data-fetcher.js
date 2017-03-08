@@ -29,7 +29,7 @@ app.get("/photos", function(req, res) {
     "id": activityId,
     "source": 1,
     "photo_sources": true,
-    "size": 2048,
+    "size": 1024,
     "access_token": accessToken
   }, function(error, payload) {
     if (error) {

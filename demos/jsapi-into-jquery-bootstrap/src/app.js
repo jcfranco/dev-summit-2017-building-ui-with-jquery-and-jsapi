@@ -92,7 +92,7 @@ define([
               attributes: photo,
               geometry: new Point(latLong2LongLat(photo.location)),
               symbol: new PictureMarkerSymbol({
-                url: photo.urls[0]
+                url: photo.urls["1024"]
               }),
               popupTemplate: {
                 content: [{
@@ -100,7 +100,7 @@ define([
                   mediaInfos: [{
                     type: "image",
                     value: {
-                      sourceURL: photo.urls[0]
+                      sourceURL: photo.urls["1024"]
                     },
                     caption: photo.caption
                   }]
