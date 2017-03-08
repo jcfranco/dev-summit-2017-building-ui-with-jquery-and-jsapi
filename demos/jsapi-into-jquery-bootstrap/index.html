@@ -9,8 +9,15 @@
   <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" crossorigin="anonymous">
+  <!-- @jcfranco Keep this? We have the path to the bower Bootrap. -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" crossorigin="anonymous"> 
+  -->
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="theme/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="theme/css/grayscale.min.css">
+  <link rel="stylesheet" type="text/css" href="theme/css/style.css">
 
   <style>
     html,
@@ -23,6 +30,30 @@
   </style>
 </head>
 <body>
+  <header class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1 class="brand-heading">MTB Ride</h1>
+            <p class="intro-text">22.1km | 946m</p>
+            <a href="#the-ride" class="btn btn-circle page-scroll">
+              <i class="fa fa-angle-double-down animated"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <section id="the-ride" class="container-fluid text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>The Ride</h1>
+        <div id="view-div"></div>
+      </div>
+    </div>
+  </section>
   <script>
     var href = location.href;
     var demoLocation = href.slice(0, href.lastIndexOf("/"));
@@ -51,6 +82,11 @@
           name: "jquery-ui",
           location: demoLocation + "/bower_components/jquery-ui",
           main: "jquery-ui.min"
+        },
+        {
+          name: "jquery.easing",
+          location: demoLocation + "/bower_components/jquery.easing",
+          main: "jquery.easing.min"
         }
       ]
     };

@@ -32,13 +32,13 @@ define([
 
     // create and append view via $
 
-    var viewDiv = $("<div></div>")
-      .addClass("viewDiv")
-      .appendTo("body");
+    // var viewDiv = $("<div></div>")
+    //   .addClass("viewDiv")
+    //   .appendTo("body");
 
     var view = new MapView({
       map: map,
-      container: viewDiv[0]
+      container: "view-div"
     });
 
     // fetch ride data
