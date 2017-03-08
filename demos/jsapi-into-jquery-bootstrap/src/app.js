@@ -34,7 +34,9 @@ define([
     // create view
     var view = new MapView({
       map: map,
-      container: "view-div"
+      container: "view-div",
+      zoom: 14,
+      center: [-116.51327133175782, 33.82029520464912]
     });
 
     view.then(function() {
