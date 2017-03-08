@@ -37,6 +37,10 @@ define([
       container: "view-div"
     });
 
+    view.then(function() {
+      view.popup.dockEnabled = true;
+    });
+
     // fetch ride data
 
     $.ajax({
