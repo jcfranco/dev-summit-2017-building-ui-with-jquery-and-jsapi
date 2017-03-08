@@ -16,3 +16,7 @@ html {
   height: 400px;
   margin-bottom: 100px;
 }
+
+.esri-popup__footer {
+  padding: 0;
+}
