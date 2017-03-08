@@ -20,3 +20,8 @@ html {
 .esri-popup__footer {
   padding: 0;
 }
+
+.esri-popup--is-docked-top-right.esri-popup__position-container .esri-popup__main-container,
+.esri-popup--is-docked-bottom-right.esri-popup__position-container .esri-popup__main-container {
+  max-height: 100%;
+}

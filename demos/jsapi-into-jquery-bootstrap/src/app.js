@@ -116,8 +116,13 @@ define([
             });
           })
         );
-
       });
+
+    $(".page-scroll").on('click', function() {
+        $('html, body').animate({
+            scrollTop: $("#the-ride").offset().top
+        }, 1500);
+    });
 
     // utilities
 
