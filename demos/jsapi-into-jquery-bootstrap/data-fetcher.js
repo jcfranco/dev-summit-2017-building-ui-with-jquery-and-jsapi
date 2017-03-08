@@ -18,7 +18,6 @@ app.get("/activity", function(req, res) {
       res.jsonp(error);
       return;
     }
-
     res.jsonp(payload);
   });
 
@@ -29,6 +28,8 @@ app.get("/photos", function(req, res) {
   strava.activities.listPhotos({
     "id": activityId,
     "source": 1,
+    "photo_sources": true,
+    "size": 2048,
     "access_token": accessToken
   }, function(error, payload) {
     if (error) {

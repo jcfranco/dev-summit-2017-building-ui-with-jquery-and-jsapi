@@ -1,0 +1,15 @@
+
+  body,
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
+  .intro {
+    background: url(../images/cover-1500.jpg) no-repeat center bottom #000;
+  }
+
+  #view-div {
+    height: 400px;
+    margin-bottom: 100px;
+  }

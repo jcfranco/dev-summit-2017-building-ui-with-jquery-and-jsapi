@@ -8,7 +8,8 @@ define([
   "esri/geometry/Point",
   "esri/geometry/Polyline",
   "esri/symbols/PictureMarkerSymbol",
-  "esri/symbols/SimpleLineSymbol"
+  "esri/symbols/SimpleLineSymbol",
+  "jquery.easing"
 ], function(
   $,
   Map, GraphicsLayer, MapView,
@@ -30,15 +31,10 @@ define([
 
     map.add(graphicsLayer);
 
-    // create and append view via $
-
-    var viewDiv = $("<div></div>")
-      .addClass("viewDiv")
-      .appendTo("body");
-
+    // create view
     var view = new MapView({
       map: map,
-      container: viewDiv[0]
+      container: "view-div"
     });
 
     // fetch ride data
@@ -89,6 +85,7 @@ define([
 
         graphicsLayer.addMany(
           data.photos.map(function(photo) {
+            console.dir(photo);
 
             // place photos on map PictureMarkerSymbols
             return new Graphic({
