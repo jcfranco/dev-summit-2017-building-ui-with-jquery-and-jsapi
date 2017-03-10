@@ -6,6 +6,7 @@ html {
 
 .intro {
   background: url(../images/cover-1500.jpg) no-repeat center bottom #000;
+  background-size: cover;
 }
 
 #image-view {
@@ -17,6 +18,17 @@ html {
   margin-bottom: 100px;
 }
 
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: auto;
+}
+
 .esri-popup__footer {
   padding: 0;
 }
@@ -24,4 +36,18 @@ html {
 .esri-popup--is-docked-top-right.esri-popup__position-container .esri-popup__main-container,
 .esri-popup--is-docked-bottom-right.esri-popup__position-container .esri-popup__main-container {
   max-height: 100%;
+}
+
+.thumbnail {
+  border: none;
+  border-radius: 0;
+  /*height: 0.25vh;*/
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
 }

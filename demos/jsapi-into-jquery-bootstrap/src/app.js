@@ -8,8 +8,8 @@ define([
   "esri/geometry/Point",
   "esri/geometry/Polyline",
   "esri/symbols/PictureMarkerSymbol",
-  "esri/symbols/SimpleLineSymbol",
-  "jquery.easing"
+  "esri/symbols/SimpleLineSymbol"/*,
+  "jquery.easing"*/
 ], function(
   $,
   Map, GraphicsLayer, MapView,
@@ -20,7 +20,7 @@ define([
   $(initApp);
 
   function initApp() {
-
+    var photoUrlKey;
     // set up our map
 
     var map = new Map({
@@ -43,6 +43,26 @@ define([
       view.popup.dockEnabled = true;
     });
 
+    view.on('click', function(evt){
+      var screenPoint = {
+        x: evt.x,
+        y: evt.y
+      }
+      view.goTo(screenPoint);
+      view.hitTest(screenPoint)
+        .then(showImage);
+    });
+
+    function showImage(response){
+      console.dir(response);
+      var graphic = response.results[0].graphic;
+      if(graphic) {
+        var img_url = graphic.attributes.urls[photoUrlKey];
+        var caption = graphic.attributes.caption;
+
+        var new_image = $('.current-image').attr('src', img_url);
+      }
+    }
     // fetch ride data
 
     $.ajax({
@@ -89,13 +109,13 @@ define([
           target: ridePolyline
         });
 
-        graphicsLayer.addMany(
+        // graphicsLayer.addMany(
           data.photos.map(function(photo) {
-            var photoUrlKey = Object.keys(photo.urls)[0];
+            photoUrlKey = Object.keys(photo.urls)[0];
             var photoUrl = photo.urls[photoUrlKey];
 
             // place photos on map PictureMarkerSymbols
-            return new Graphic({
+            var graphic = new Graphic({
               attributes: photo,
               geometry: new Point(latLong2LongLat(photo.location)),
               symbol: new PictureMarkerSymbol({
@@ -114,13 +134,16 @@ define([
                 }]
               }
             });
+            graphicsLayer.add(graphic);
+
+            $('#img-container').append('<div class="col-md-2"><a href="" class="thumbnail"><img src="' + photoUrl + '"/></a></div>');
           })
-        );
+        // );
       });
 
     $(".page-scroll").on('click', function() {
         $('html, body').animate({
-            scrollTop: $("#the-ride").offset().top
+            scrollTop: $("#img-container").offset().top
         }, 1500);
     });
 
